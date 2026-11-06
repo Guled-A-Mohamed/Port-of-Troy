@@ -5,9 +5,19 @@
     --m4:   #437FC6;
 
     --header-placeholder-height: clamp(60px, 7.8125vh, 100px);
+    --header-title-size: clamp(20px, 3vh, 36px);
+}
 
-    .header {
-        width: 100%;
-        height: var(--header-height);
-    }
+.header {
+    width: 100%;
+    height: var(--header-placeholder-height);
+
+    display: flex;
+    align-items: center;
+    background-color: black;
+}
+
+.header h1 {
+    font-size: var(--header-title-size);
+    margin: 0;
 }

@@ -5,7 +5,7 @@ import './App.css'
 function App() {
   return (
     <main>
-      <header>
+      <header className="header">
         <h1>Port of Troy</h1>
       </header>
       <section>
