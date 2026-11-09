@@ -1,6 +1,6 @@
 :root {
     --m1:   #1B202C;
-    --m1:   #324B4E;
+    --m2:   #324B4E;
     --m3:   #213D36;
     --m4:   #437FC6;
 
@@ -20,7 +20,7 @@
 
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: var(--m3);
 }
 
 .header h1 {
