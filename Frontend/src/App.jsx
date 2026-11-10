@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 import DModal from './components_d/dModal';
+import Test from './components_d/testContent';
 
 function App() {
     const [activeModal, setActiveModal] = useState(null);
@@ -10,6 +11,11 @@ function App() {
         test: {
             title: 'test',
             content: <p>Test Content.</p>
+        },
+
+        restaurants: {
+            title: 'restaurant selection',
+            content: <Test />
         }
     };
 
@@ -31,10 +37,15 @@ function App() {
                 <button onClick={() => openModal('test')}>
                     About
                 </button>
+
+                
+                <button onClick={() => openModal('restaurants')}>
+                    Restaurants
+                </button>
             </header>
 
             <section>
-                <p>Welkom op de pagina van Port of Troy.</p>
+                <p>Welkom op de default page van Port of Troy.</p>
             </section>
 
             <DModal

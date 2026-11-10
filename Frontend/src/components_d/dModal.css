@@ -1,6 +1,3 @@
-
-/* dModal.css */
-
 :root {
     --m1: #1B202C;
     --m2: #324B4E;
@@ -14,13 +11,20 @@
     --dg: #444444;
     --black: #000000;
 
-    --modal-width: min(72.222vw, 1040px);
-    /* 100/1440*1040=
-    72.22222222 */
-    --modal-height: min(98vh);
+    --modal-max-width: 1040px;
+    --modal-padding: clamp(10px, 1.4vw, 20px);
+
+    /* Header: everything is derived from --head-height */
+    --head-height: 80px;
+    --nav-margin-left: 20px;
+    --nav-height: calc(var(--head-height) - 10px);                      /* 5px above and below = 70px */
+    --button-inset: 10px;
+    --button-height: calc(var(--nav-height) - 2 * var(--button-inset)); /* 50px */
 }
 
-/* Modal background overlay */
+
+
+
 .d-modal-overlay {
     position: fixed;
     inset: 0;
@@ -30,80 +34,101 @@
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: var(--modal-padding);
     background-color: rgb(0 0 0 / 40%);
 }
 
-/* Main modal */
+/* Fills the screen, but never gets wider than 1040px */
 .d-modal {
-    width: var(--modal-width);
-    height: var(--modal-height);
-
-    background-color: var(--white);
-    border-radius: 8px;
+    width: 100%;
+    max-width: var(--modal-max-width);
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    background-color: var(--white);
+    border-radius: 8px;
 }
 
-/* Modal header */
+/* modalHead: light grey band */
 .modal-head {
-    min-height: 80px;
+    flex-shrink: 0;
+    height: var(--head-height);
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* centres the nav vertically = the 5px top and bottom margin */
+
     background-color: var(--lg);
 }
 
-/* Navigation */
+/* modalNav: dark grey bar, 20px in from the left, flush to the right */
 .modal-nav {
-    height: 70px;
-    width: 1020px;
-    flex-shrink: 0;
+    flex: 1;
+    height: var(--nav-height);
+    margin-left: var(--nav-margin-left);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: var(--g);
-
-    margin-top: 5px; 
-    margin-bottom: 5px;
-    margin-left: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* 
-    100/1440*1020=
-    70.83333333 
-    */
-
 }
 
-
-
-/* Close button */
+/* Close button: centred in the nav, 900 / 1020 = 88.235% */
 .modal-close-btn {
-    width: 900px;
-    height: 50px;
+    width: 88.235%;
+    height: var(--button-height);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-
+    border: 0;
     background-color: var(--lg);
-
-    /* 
-    100/1440*900=
-    62.5
-    */
+    color: var(--black);
+    font: inherit;
+    cursor: pointer;
 }
 
-/* Modal content */
+.modal-close-btn:hover {
+    background-color: var(--l);
+}
+
+.modal-close-btn:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Only the content scrolls, the header stays visible */
 .d-modal-content {
     flex: 1;
+    min-height: 0; /* without this, a flex child won't shrink and scroll */
     overflow-y: auto;
-    padding: 20px;
+    padding: var(--modal-padding);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    :root {
+        --modal-width: 100%;
+        --modal-height: 100dvh;
+        --modal-padding: 10px;
+        --nav-height: 60px;
+        --nav-button-height: 45px;
+
+        --head-height: 64px;
+        --nav-margin-left: 10px;
+        --button-inset: 5px;
+    }
+
+    .d-modal-overlay {
+        padding: 0;
+    }
+
+    .d-modal {
+        border-radius: 0;
+        max-width: none;
+    }
+
+    .modal-head {
+        min-height: 60px;
+    }
 }
