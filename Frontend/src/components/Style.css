@@ -1,0 +1,41 @@
+.my-navbar {
+  background-color: #d8d8d8;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.my-title {
+  color: #333;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  padding: 6px 10px;
+  margin: 0;
+}
+
+.my-grid {
+  background-color: #666666;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+  margin: 0;
+  list-style: none;
+}
+
+.my-button {
+  display: block;
+  background-color: #d8d8d8;
+  color: #333;
+  text-align: center;
+  padding: 4px 6px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.my-button:hover {
+  background-color: #c0c0c0;
+}
