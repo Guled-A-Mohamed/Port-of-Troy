@@ -1,0 +1,31 @@
+:root {
+    --m1:   #1B202C;
+    --m2:   #324B4E;
+    --m3:   #213D36;
+    --m4:   #437FC6;
+
+    --white: #ffffff;
+    --lg: #D9D9D9;
+    --g: #757575;
+    --dg: #444444;
+    --black: #000000;
+
+    --header-placeholder-height: clamp(60px, 7.8125vh, 100px);
+    --header-title-size: clamp(20px, 3vh, 36px);
+}
+
+.header {
+    width: 100%;
+    height: var(--header-placeholder-height);
+
+    display: flex;
+    align-items: center;
+    background-color: var(--m3);
+}
+
+.header h1 {
+    font-size: var(--header-title-size);
+    margin: 0;
+}
+
+
