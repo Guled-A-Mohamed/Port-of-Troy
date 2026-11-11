@@ -17,15 +17,14 @@ app.get('/',(req,res) =>{
     return res.json("db_mode")
 })
 
-app.get('/',(req,res) =>{
-   const sql = "select * from users"
-   db.query(sql,(err,data) =>{
-    if(err) {return res,json(err)}
-       return res.json(err)
-   }
-
-)
+app.get('/users', (req, res) => {
+  const sql = "SELECT * FROM users"
+  db.query(sql, (err, data) => {
+    if (err) return res.json(err)
+    return res.json(data)
+  })
 })
+
 app.listen(8081,() =>{
     console.log("listening")
 })
