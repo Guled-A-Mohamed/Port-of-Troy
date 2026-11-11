@@ -1,0 +1,134 @@
+:root {
+    --m1: #1B202C;
+    --m2: #324B4E;
+    --m3: #213D36;
+    --m4: #437FC6;
+
+    --white: #ffffff;
+    --l: #f8f8f8;
+    --lg: #D9D9D9;
+    --g: #757575;
+    --dg: #444444;
+    --black: #000000;
+
+    --modal-max-width: 1040px;
+    --modal-padding: clamp(10px, 1.4vw, 20px);
+
+    /* Header: everything is derived from --head-height */
+    --head-height: 80px;
+    --nav-margin-left: 20px;
+    --nav-height: calc(var(--head-height) - 10px);                      /* 5px above and below = 70px */
+    --button-inset: 10px;
+    --button-height: calc(var(--nav-height) - 2 * var(--button-inset)); /* 50px */
+}
+
+
+
+
+.d-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--modal-padding);
+    background-color: rgb(0 0 0 / 40%);
+}
+
+/* Fills the screen, but never gets wider than 1040px */
+.d-modal {
+    width: 100%;
+    max-width: var(--modal-max-width);
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background-color: var(--white);
+    border-radius: 8px;
+}
+
+/* modalHead: light grey band */
+.modal-head {
+    flex-shrink: 0;
+    height: var(--head-height);
+
+    display: flex;
+    align-items: center; /* centres the nav vertically = the 5px top and bottom margin */
+
+    background-color: var(--lg);
+}
+
+/* modalNav: dark grey bar, 20px in from the left, flush to the right */
+.modal-nav {
+    flex: 1;
+    height: var(--nav-height);
+    margin-left: var(--nav-margin-left);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--g);
+}
+
+/* Close button: centred in the nav, 900 / 1020 = 88.235% */
+.modal-close-btn {
+    width: 88.235%;
+    height: var(--button-height);
+
+    border: 0;
+    background-color: var(--lg);
+    color: var(--black);
+    font: inherit;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--l);
+}
+
+.modal-close-btn:focus-visible {
+    outline: 3px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Only the content scrolls, the header stays visible */
+.d-modal-content {
+    flex: 1;
+    min-height: 0; /* without this, a flex child won't shrink and scroll */
+    overflow-y: auto;
+    padding: var(--modal-padding);
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    :root {
+        --modal-width: 100%;
+        --modal-height: 100dvh;
+        --modal-padding: 10px;
+        --nav-height: 60px;
+        --nav-button-height: 45px;
+
+        --head-height: 64px;
+        --nav-margin-left: 10px;
+        --button-inset: 5px;
+    }
+
+    .d-modal-overlay {
+        padding: 0;
+    }
+
+    .d-modal {
+        border-radius: 0;
+        max-width: none;
+    }
+
+    .modal-head {
+        min-height: 60px;
+    }
+}
