@@ -1,22 +1,24 @@
-
 import RestaurantResult from './restaurantSelectionResult';
 import restaurantData from './restaurantData';
+import './restaurant.css';
 
 function RestaurantSelection() {
     return (
 
 
         <section className="restaurant-selection">
-            <div>
+            <div className="searchOptions">
                 {/* vakantiepark, KM range, submit */}
                 <form className="P-2">
-                    <input type="text" id="vakantiepark" name="vakantiepark" placeholder="vacation parc"></input>
+                    <input type="text" id="vakantieparkSelector" name="vakantieparkSelector" placeholder="vacation park"></input>
 
-                    <select>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
+                    <select id="searchRadius">
+                        <option value="option1">On Park</option>
+                        <option value="option2">10 KM</option>
+                        <option value="option3">25 KM</option>
                     </select>
+
+                    <input type="submit" id="RestaurantSelectionSubmit" value="Submit"></input>
                 </form>
             </div>            
             <h2>Selecteer een restaurant</h2>

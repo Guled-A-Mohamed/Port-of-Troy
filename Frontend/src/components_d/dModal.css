@@ -48,7 +48,7 @@
     flex-direction: column;
     overflow: hidden;
 
-    background-color: var(--white);
+    background-color: var(--l);
     border-radius: 8px;
 }
 
