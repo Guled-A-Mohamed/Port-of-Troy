@@ -30,9 +30,7 @@ function App() {
     };
 
     const slideData = [
-        { url: 'img_nature_wide.jpg', caption: 'Caption Text' },
-        { url: 'img_snow_wide.jpg', caption: 'Caption Two' },
-        { url: 'img_mountains_wide.jpg', caption: 'Caption Three' },
+
     ];
 
     const currentModal = modalContent[activeModal];

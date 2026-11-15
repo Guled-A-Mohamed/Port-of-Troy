@@ -33,40 +33,58 @@ const ImageSlider = ({ images }) => {
   }, [currentIndex, images.length]);
 
   if (!images || images.length === 0) {
-    return <p>No images to display</p>
+    return <p className="text-center my-4">No images to display</p>;
   }
 
   return(
-    <div>
-      <div className="slideshow-container">
-        {/* Render only the active slide */}
-        <div className="mySlides fade">
+<div className="container my-4">
+      {/* Main Slideshow Box */}
+      <div className="slideshow-container position-relative mx-auto rounded shadow overflow-hidden">
+        
+        {/* Key forces React to re-trigger the CSS fade animation on slide change */}
+        <div key={currentIndex} className="mySlides fade-animation">
           <div className="numbertext">
             {currentIndex + 1} / {images.length}
           </div>
-          <img 
-            src={images[currentIndex].url} 
-            alt={images[currentIndex].caption || 'Slide'} 
-            style={{ width: '100%' }} 
+          
+          <img
+            src={images[currentIndex].url}
+            alt={images[currentIndex].caption || 'Slide'}
+            className="img-fluid w-100 slide-image"
           />
-          <div className="text">{images[currentIndex].caption}</div>
+          
+          <div className="caption-text">
+            {images[currentIndex].caption}
+          </div>
         </div>
 
-        {/* Next and previous buttons */}
-        <button className="prev" onClick={prevSlide}>❮</button>
-        <button className="next" onClick={nextSlide}>❯</button>
+        {/* Next & Previous Buttons */}
+        <button 
+          className="prev" 
+          onClick={prevSlide} 
+          aria-label="Previous Slide"
+        >
+          &#10094;
+        </button>
+        <button 
+          className="next" 
+          onClick={nextSlide} 
+          aria-label="Next Slide"
+        >
+          &#10095;
+        </button>
       </div>
 
-      <br />
-
-      {/* Dots / indicators */}
-      <div style={{ textAlign: 'center' }}>
+      {/* Navigation Dots */}
+      <div className="text-center mt-3">
         {images.map((_, index) => (
-          <span
+          <button
             key={index}
-            className={`dot ${currentIndex === index ? 'active' : ''}`}
+            type="button"
+            aria-label={`Go to slide ${index + 1}`}
+            className={`dot border-0 ${currentIndex === index ? 'active' : ''}`}
             onClick={() => setCurrentIndex(index)}
-          ></span>
+          ></button>
         ))}
       </div>
     </div>
