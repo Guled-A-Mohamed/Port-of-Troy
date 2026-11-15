@@ -29,6 +29,12 @@ function App() {
         setActiveModal(null);
     };
 
+    const slideData = [
+        { url: 'img_nature_wide.jpg', caption: 'Caption Text' },
+        { url: 'img_snow_wide.jpg', caption: 'Caption Two' },
+        { url: 'img_mountains_wide.jpg', caption: 'Caption Three' },
+    ];
+
     const currentModal = modalContent[activeModal];
 
     return (
@@ -49,7 +55,7 @@ function App() {
             <section>
                 <p>Welkom op de default page van Port of Troy.</p>
 
-                {/* <ImageSlider /> */}
+                <ImageSlider images={slideData} />
             </section>
 
             <DModal

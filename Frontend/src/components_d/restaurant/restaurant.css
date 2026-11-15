@@ -1,36 +1,137 @@
+/* Palette (--m1, --lg, ...) comes from dModal.css, so it is not repeated here. */
 :root {
-    --m1: #1B202C;
-    --m2: #324B4E;
-    --m3: #213D36;
-    --m4: #437FC6;
-
-    --white: #ffffff;
-    --l: #f8f8f8;
-    --lg: #D9D9D9;
-    --g: #757575;
-    --dg: #444444;
-    --black: #000000;
+    --restaurant-gap: 12px;
+    --restaurant-radius: 6px;
+    --restaurant-control-height: 44px; /* comfortable touch target */
 }
 
-.searchOptions {
+.restaurant-selection {
+    display: grid;
+    gap: var(--restaurant-gap);
+}
+
+.restaurant-selection h2 {
+    margin: 0;
+}
+
+/* ---------- Filter bar ---------- */
+/* auto-fit + minmax: 3 columns when there is room, wraps to fewer on small screens.
+   No fixed width and no media query needed. */
+.search-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--restaurant-gap);
+    align-items: end; /* lines the buttons up with the inputs, not the labels */
+
+    padding: var(--restaurant-gap);
+    border-radius: var(--restaurant-radius);
     background-color: var(--m1);
-    height: 60px;
-    width: 800px;
+    color: var(--lg);
 }
 
-#vakantieparkSelector {
+.search-field {
+    display: grid;
+    gap: 4px;
+}
+
+.search-field label {
+    font-size: 0.875rem;
+}
+
+.search-field :is(input, select) {
+    min-height: var(--restaurant-control-height);
+    padding-inline: 10px;
+
+    border: 1px solid var(--g);
+    border-radius: 4px;
+    background-color: var(--m2);
+    color: var(--white);
+    font: inherit;
+}
+
+.search-field input::placeholder {
+    color: var(--lg);
+    opacity: 0.7;
+}
+
+.search-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.search-actions button {
+    flex: 1;
+    min-height: var(--restaurant-control-height);
+    padding-inline: 12px;
+
+    border: 1px solid var(--lg);
+    border-radius: 4px;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Light button on a dark bar: better contrast than white text on --m4 */
+.btn-primary {
+    background-color: var(--l);
+    color: var(--m1);
+    font-weight: 700;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--lg);
+}
+
+.btn-primary:hover {
+    background-color: var(--lg);
+}
+
+.btn-secondary:hover {
     background-color: var(--m2);
 }
 
-#searchRadius {
-    background-color: var(--m2);
+.search-options :is(input, select, button):focus-visible {
+    outline: 3px solid var(--m4);
+    outline-offset: 2px;
 }
 
-#RestaurantSelectionSubmit {
-    background-color: var(--m2);
+/* ---------- Results ---------- */
+.restaurant-count {
+    margin: 0;
+    color: var(--dg);
+}
+
+/* auto-fill: as many 260px+ cards per row as fit, they stretch to fill the row */
+.restaurant-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--restaurant-gap);
 }
 
 .restaurant-result {
+    padding: var(--restaurant-gap);
+
+    border-left: 4px solid var(--m4);
+    border-radius: var(--restaurant-radius);
     background-color: var(--m1);
     color: var(--lg);
+}
+
+.restaurant-result h3 {
+    margin: 0 0 4px;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+.restaurant-result p {
+    margin: 0;
+}
+
+.restaurant-meta {
+    font-size: 0.875rem;
+}
+
+/* The address line gets space below it, the meta lines stay together */
+.restaurant-result p:not(.restaurant-meta) {
+    margin-bottom: 8px;
 }
