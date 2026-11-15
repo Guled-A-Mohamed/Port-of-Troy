@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './App.css';
 import DModal from './components_d/dModal';
 import Test from './components_d/testContent';
+import RestaurantSelection from './components_d/restaurant/restaurantSelectionModal'
+import ImageSlider from './components_d/imageSlider';
 
 function App() {
     const [activeModal, setActiveModal] = useState(null);
@@ -10,12 +12,12 @@ function App() {
     const modalContent = {
         test: {
             title: 'test',
-            content: <p>Test Content.</p>
+            content: <Test />
         },
 
         restaurants: {
             title: 'restaurant selection',
-            content: <Test />
+            content: <RestaurantSelection />
         }
     };
 
@@ -46,6 +48,8 @@ function App() {
 
             <section>
                 <p>Welkom op de default page van Port of Troy.</p>
+
+                {/* <ImageSlider /> */}
             </section>
 
             <DModal
