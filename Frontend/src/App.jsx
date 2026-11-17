@@ -24,6 +24,16 @@ function App() {
         console.log('5. useEffect triggered on pathname change:', pathname);
         setActiveModal(null);
     }, [pathname]);
+    
+    const openModal = (modalName) => {
+        console.log('Event: openModal called with:', modalName);
+        setActiveModal(modalName);
+    };
+
+    const closeModal = () => {
+        console.log('Event: closeModal called');
+        setActiveModal(null);
+    };
 
     const modalContent = {
         test: {
@@ -47,15 +57,7 @@ function App() {
         }
     };
 
-    const openModal = (modalName) => {
-        console.log('Event: openModal called with:', modalName);
-        setActiveModal(modalName);
-    };
 
-    const closeModal = () => {
-        console.log('Event: closeModal called');
-        setActiveModal(null);
-    };
 
     const slideData = [
 

@@ -15,7 +15,7 @@ const defaultFilters = { park: '', radius: Infinity };
 // so " km (op het park)" is ignored. JS needs a dot as decimal separator, hence replace().
 const getDistanceKm = (text) => parseFloat(text.replace(',', '.'));
 
-function RestaurantSelection() {
+function RestaurantSelection({ onSelect }) {
     // Only the APPLIED filters are state. The text a user is still typing stays in the form itself.
     const [filters, setFilters] = useState(defaultFilters);
 
@@ -87,7 +87,7 @@ function RestaurantSelection() {
 
             <div className="restaurant-results">
                 {results.map((restaurant) => (
-                    <RestaurantResult key={restaurant.id} restaurant={restaurant} />
+                    <RestaurantResult key={restaurant.id} restaurant={restaurant} onSelect={onSelect} />
                 ))}
             </div>
         </section>

@@ -58,7 +58,7 @@ function RestaurantPage({ onOpenModal }) {
                         <div className="d-flex flex-column flex-sm-row gap-2">
                             <button
                                 type="button"
-                                className="btn btn-light"
+                                className="btn btn-dark"
                                 aria-haspopup="dialog"
                                 onClick={() => onOpenModal('menu')}
                             >
@@ -67,7 +67,7 @@ function RestaurantPage({ onOpenModal }) {
 
                             <button
                                 type="button"
-                                className="btn btn-outline-light"
+                                className="btn btn-dark"
                                 aria-haspopup="dialog"
                                 onClick={() => onOpenModal('reservation')}
                             >

@@ -135,3 +135,7 @@
 .restaurant-result p:not(.restaurant-meta) {
     margin-bottom: 8px;
 }
+
+.restaurant-result {
+    position: relative; /* Anchor for the stretched link: its ::after covers only this card */
+}
