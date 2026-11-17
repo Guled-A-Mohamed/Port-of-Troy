@@ -1,13 +1,22 @@
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import DModal from './components_d/dModal';
 import Test from './components_d/testContent';
 import RestaurantSelection from './components_d/restaurant/restaurantSelectionModal'
 import ImageSlider from './components_d/imageSlider';
+import AppRoutes from './components_d/routing/appRoutes';
 
 function App() {
     const [activeModal, setActiveModal] = useState(null);
+    const { pathname } = useLocation();
+
+    // App stays mounted when the page changes, so the modal would stay open on top
+    // of the new page. This closes it every time the URL path changes
+    // (a click on a restaurant, but also the browser's back button).
+    useEffect(() => {
+        setActiveModal(null);
+    }, [pathname]);
 
     const modalContent = {
         test: {
@@ -18,6 +27,16 @@ function App() {
         restaurants: {
             title: 'restaurant selection',
             content: <RestaurantSelection />
+        },
+
+        menu: {
+            title: 'menu & ordering',
+            content: <p>Menu and ordering will follow.</p>
+        },
+
+        reservation: {
+            title: 'reservation',
+            content: <p>Reservations will follow.</p>
         }
     };
 
@@ -55,6 +74,8 @@ function App() {
 
                 <ImageSlider images={slideData} />
             </section>
+
+            <AppRoutes onOpenModal={openModal} />
 
             <DModal
                 isOpen={Boolean(currentModal)}
