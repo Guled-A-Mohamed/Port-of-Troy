@@ -26,7 +26,7 @@ function DModal({ isOpen, title, children, onClose }) {
 
                 <header className="modal-head">
                     {/* <h2 id="modal-title">{title}</h2> */}
-                    <div class="modal-nav
+                    <div className="modal-nav
                     ">
                         <button className="modal-close-btn" onClick={onClose} aria-label="close modal">
                             Close

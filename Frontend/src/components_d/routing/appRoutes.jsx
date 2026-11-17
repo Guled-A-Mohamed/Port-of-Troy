@@ -1,5 +1,5 @@
 import { Link, Navigate, Outlet, Route, Routes, useParams } from 'react-router';
-import RestaurantPage from './restaurant/restaurantPage';
+import RestaurantPage from '../restaurant/restaurantPage';
 import useLang, { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from './useLang';
 
 function NotFound() {

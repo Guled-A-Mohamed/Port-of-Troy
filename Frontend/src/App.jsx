@@ -5,7 +5,7 @@ import DModal from './components_d/dModal';
 import Test from './components_d/testContent';
 import RestaurantSelection from './components_d/restaurant/restaurantSelectionModal'
 import ImageSlider from './components_d/imageSlider';
-import AppRoutes from './components_d/AppRoutes';
+import AppRoutes from './components_d/routing/appRoutes';
 
 console.log('1. App.jsx imports loaded:', { DModal, Test, RestaurantSelection, ImageSlider, AppRoutes });
 
