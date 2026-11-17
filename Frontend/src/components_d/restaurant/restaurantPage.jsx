@@ -1,8 +1,8 @@
 import { Link, useParams } from 'react-router';
 import restaurantData from './restaurantData';
 import RestaurantBlock from './restaurantBlock';
-import toSlug from '../routing/toSlug';
-import useLang from '../routing/useLang';
+import toSlug from '../toSlug';
+import useLang from '../useLang';
 
 function RestaurantPage({ onOpenModal }) {
     const { slug } = useParams();

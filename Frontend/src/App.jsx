@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import './App.css';
 import DModal from './components_d/dModal';
 import Test from './components_d/testContent';
 import RestaurantSelection from './components_d/restaurant/restaurantSelectionModal'
 import ImageSlider from './components_d/imageSlider';
-import AppRoutes from './components_d/routing/appRoutes';
+import AppRoutes from './components_d/AppRoutes';
+
+console.log('1. App.jsx imports loaded:', { DModal, Test, RestaurantSelection, ImageSlider, AppRoutes });
 
 function App() {
+    console.log('2. App component starting...');
     const [activeModal, setActiveModal] = useState(null);
+    console.log('3. State initialized. Calling useLocation...');
+
     const { pathname } = useLocation();
+    console.log('4. Current pathname:', pathname);
 
     // App stays mounted when the page changes, so the modal would stay open on top
     // of the new page. This closes it every time the URL path changes
     // (a click on a restaurant, but also the browser's back button).
     useEffect(() => {
+        console.log('5. useEffect triggered on pathname change:', pathname);
         setActiveModal(null);
     }, [pathname]);
 
@@ -41,10 +48,12 @@ function App() {
     };
 
     const openModal = (modalName) => {
+        console.log('Event: openModal called with:', modalName);
         setActiveModal(modalName);
     };
 
     const closeModal = () => {
+        console.log('Event: closeModal called');
         setActiveModal(null);
     };
 
@@ -53,6 +62,8 @@ function App() {
     ];
 
     const currentModal = modalContent[activeModal];
+
+    console.log('6. Rendering App JSX. currentModal:', currentModal);
 
     return (
         <main>
@@ -70,7 +81,7 @@ function App() {
             </header>
 
             <section>
-                <p>Welkom op de default page van Port of Troy.</p>
+                <p>Hi. Welkom op de default page van Port of Troy.</p>
 
                 <ImageSlider images={slideData} />
             </section>
