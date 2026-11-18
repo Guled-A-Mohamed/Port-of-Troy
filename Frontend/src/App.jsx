@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // Import page components here
+import Users from './Users'
 import './App.css'
 
 function App() {
@@ -11,7 +12,14 @@ function App() {
       <section>
         <p>Welkom op de pagina van Port of Troy.</p>
       </section>
+         <BrowserRouter>
+      <Routes>
+        <Route path="/user" element={<Users />} />
+      </Routes>
+    </BrowserRouter>
+  
     </main>
+    
   )
 }
 

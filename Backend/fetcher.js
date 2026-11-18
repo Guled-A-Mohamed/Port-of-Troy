@@ -2,7 +2,7 @@ const express = require('express')
 const mysql = require('mysql') 
 const cors = require('cors') 
 
-
+//const port = 
 const app = express()
 app.use(cors())
 
@@ -17,13 +17,34 @@ app.get('/',(req,res) =>{
     return res.json("db_mode")
 })
 
-app.get('/users', (req, res) => {
-  const sql = "SELECT * FROM users"
+app.get('/huizen', (req, res) => {
+  const sql = "SELECT * FROM huizen"
   db.query(sql, (err, data) => {
     if (err) return res.json(err)
     return res.json(data)
   })
 })
+
+
+app.get('/users', (req, res) => {
+  const sql = "SELECT voornaam, achternaam, email FROM users"
+
+  db.query(sql, (err, data) => {
+    if (err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(8081,() =>{
     console.log("listening")
