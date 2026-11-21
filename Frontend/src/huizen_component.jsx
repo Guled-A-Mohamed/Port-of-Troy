@@ -5,9 +5,9 @@ function Huizen(){
     useEffect(() => {
        async function loadUsers()  {
         try{
-        const res = await fetch('http://localhost:8081/users')
+        const res = await fetch('http://localhost:8081/Huizen')
         const data = await res.json()
-        setUser(data)}
+        setHuizen(data)}
 
         catch(err)
         {console.log(err)}
@@ -19,7 +19,7 @@ function Huizen(){
     return(
         <main>
           <ul>
-       {user.map((thing) => <li>{thing.voornaam} {thing.achternaam}</li>)}
+       {user.map((thing) => <li>{thing.naam} {thing.achternaam}</li>)}
        </ul>
         </main>
     )
