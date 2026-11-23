@@ -21,6 +21,7 @@ app.get('/',(req,res) =>{
 
 app.get('/huizen', (req, res) => {
   const sql = "SELECT naam, prijs,straat,huisnummer,plaats FROM huizen join park_locatie on location_id = locatie_id;"
+
   db.query(sql, (err, data) => {
     if (err) return res.json(err)
     return res.json(data)

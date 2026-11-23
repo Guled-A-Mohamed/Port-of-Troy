@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // Import page components here
 import Users from './Users'
+import Huizen from './huizen_component'
+import Searchbar from './huizen_component'
 import './App.css'
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
       </section>
          <BrowserRouter>
       <Routes>
-        <Route path="/user" element={<Users />} />
+        <Route path="/huizen" element={<Huizen />} />
       </Routes>
     </BrowserRouter>
   
