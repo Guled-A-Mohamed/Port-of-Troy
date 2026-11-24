@@ -1,33 +1,84 @@
-.park-label {
-  font-family: var(--font-main);
-  color: var(--m1);
-  font-weight: 700;
-  font-size: 1.1rem;
+.park-dropdown {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
 }
 
-.park-select.form-select {
+/* Main Toggle Button */
+.park-dropdown-btn {
   background-color: var(--m1);
   color: var(--white);
   border: 1px solid var(--m2);
-  font-size: 1rem; /* Prevents iOS auto-zoom on mobile */
+  font-size: 1rem;
   min-height: 46px;
+  padding: 0.6rem 1rem;
 }
 
-.park-select.form-select:focus {
+.park-dropdown-btn:hover,
+.park-dropdown-btn:focus,
+.park-dropdown-btn.show {
+  background-color: var(--m3);
+  color: var(--white);
   border-color: var(--m4);
-  background-color: var(--m1);
-  color: var(--white);
-  box-shadow: 0 0 0 0.25rem rgba(67, 127, 198, 0.35);
 }
 
-.park-select optgroup {
+/* Dropdown Panel */
+.park-dropdown-menu {
+  background-color: var(--m1);
+  border: 1px solid var(--m2);
+  width: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+}
+
+.park-dropdown-menu.show {
+  display: block;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+}
+
+/* Widen panel on large screens so 2 columns have breathing room */
+@media (min-width: 992px) {
+  .park-dropdown-menu {
+    min-width: 540px;
+  }
+}
+
+/* Country Header */
+.park-country-header {
   font-family: var(--font-main);
-  background-color: var(--m2);
-  color: var(--lg);
+  color: var(--m4);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-bottom: 1px solid var(--m2);
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.25rem;
 }
 
-.park-select option {
-  font-family: sans-serif;
-  background-color: var(--m1);
+/* Individual Park Options */
+.park-item.dropdown-item {
   color: var(--white);
+  padding: 0.45rem 0.65rem;
+  font-size: 0.95rem;
+  white-space: normal;
+}
+
+.park-item.dropdown-item:hover,
+.park-item.dropdown-item:focus {
+  background-color: var(--m2);
+  color: var(--white);
+}
+
+.park-item.dropdown-item.active {
+  background-color: var(--m4);
+  color: var(--white);
+}
+
+@media (max-width: 576px) {
+  .park-dropdown {
+    max-width: 100%;
+  }
 }
