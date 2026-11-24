@@ -1,3 +1,4 @@
+//http://localhost:8081
 const express = require('express') 
 const mysql = require('mysql') 
 const cors = require('cors') 
@@ -20,7 +21,7 @@ app.get('/',(req,res) =>{
 ///huizen table
 
 app.get('/huizen', (req, res) => {
-  const sql = "SELECT naam, prijs,straat,huisnummer,plaats FROM huizen join park_locatie on location_id = locatie_id;"
+  const sql = "SELECT naam, prijs,gasten,straat,huisnummer,plaats FROM huizen join park_locatie on location_id = locatie_id;"
 
   db.query(sql, (err, data) => {
     if (err) return res.json(err)
