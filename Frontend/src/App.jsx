@@ -60,7 +60,18 @@ function App() {
 
 
     const slideData = [
-
+        {
+        url: 'https://www.w3schools.com/howto/img_nature_wide.jpg',
+        caption: 'Caption One'
+        },
+        {
+        url: 'https://www.w3schools.com/howto/img_snow_wide.jpg',
+        caption: 'Caption Two'
+        },
+        {
+        url: 'https://www.w3schools.com/howto/img_mountains_wide.jpg',
+        caption: 'Caption Three'
+        }
     ];
 
     const currentModal = modalContent[activeModal];

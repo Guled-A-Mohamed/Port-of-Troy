@@ -7,9 +7,9 @@ const ImageSlider = ({ images }) => {
   // Move to the next slide (loops back to 0 at the end)
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length -1 : prevIndex - 1
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  }
+  };
   
   // Move to the previous slide (loops to the end from 0)
   const prevSlide = () => {
