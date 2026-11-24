@@ -6,6 +6,7 @@ import Test from './components_d/testContent';
 import RestaurantSelection from './components_d/restaurant/restaurantSelectionModal'
 import ImageSlider from './components_d/imageSlider';
 import AppRoutes from './components_d/routing/appRoutes';
+import ParkSelector from './components_d/parkDropdown';
 
 console.log('1. App.jsx imports loaded:', { DModal, Test, RestaurantSelection, ImageSlider, AppRoutes });
 
@@ -97,6 +98,8 @@ function App() {
                 <p>Hi. Welkom op de default page van Port of Troy.</p>
 
                 <ImageSlider images={slideData} />
+
+                <ParkSelector />
             </section>
 
             <AppRoutes onOpenModal={openModal} />

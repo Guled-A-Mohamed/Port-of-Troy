@@ -1,0 +1,33 @@
+.park-label {
+  font-family: var(--font-main);
+  color: var(--m1);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.park-select.form-select {
+  background-color: var(--m1);
+  color: var(--white);
+  border: 1px solid var(--m2);
+  font-size: 1rem; /* Prevents iOS auto-zoom on mobile */
+  min-height: 46px;
+}
+
+.park-select.form-select:focus {
+  border-color: var(--m4);
+  background-color: var(--m1);
+  color: var(--white);
+  box-shadow: 0 0 0 0.25rem rgba(67, 127, 198, 0.35);
+}
+
+.park-select optgroup {
+  font-family: var(--font-main);
+  background-color: var(--m2);
+  color: var(--lg);
+}
+
+.park-select option {
+  font-family: sans-serif;
+  background-color: var(--m1);
+  color: var(--white);
+}
