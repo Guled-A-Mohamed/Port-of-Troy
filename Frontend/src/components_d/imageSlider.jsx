@@ -27,7 +27,7 @@ const ImageSlider = ({ images }) => {
 
     const timer = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 9000);
 
     // Cleanup: clear the timer when the component unmounts OR when currentIndex changes
     // (Resetting on currentIndex change ensures the 3s timer restarts if the user clicks manually)
