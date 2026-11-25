@@ -1,3 +1,5 @@
+@import url('https://googleapis.com');
+
 :root {
     --m1:   #1B202C;
     --m2:   #324B4E;
@@ -9,6 +11,8 @@
     --g: #757575;
     --dg: #444444;
     --black: #000000;
+
+    --font-main: 'Cinzel', serif;;
 
     --header-placeholder-height: clamp(60px, 7.8125vh, 100px);
     --header-title-size: clamp(20px, 3vh, 36px);
@@ -28,4 +32,11 @@
     margin: 0;
 }
 
+body,
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-main);
+}
 
