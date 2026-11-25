@@ -1,7 +1,6 @@
-
 import "./Style.css";
 
-export default function Navbar() {
+export default function Navbar({ onOpenModal }) {
   return (
     <nav className="my-navbar">
       <h1 className="my-title">(hier komt onze logo)</h1>
@@ -12,29 +11,32 @@ export default function Navbar() {
           </a>
         </li>
         <li>
-          <a href="/about" className="my-button">
+          <button onClick={() => onOpenModal("test")} className="my-button">
             Our parks
-          </a>
+          </button>
         </li>
         <li>
-          <a href="/restaurant" className="my-button">
+          <button
+            onClick={() => onOpenModal("restaurants")}
+            className="my-button"
+          >
             Restaurant
-          </a>
+          </button>
         </li>
         <li>
-          <a href="/contact" className="my-button">
+          <button onClick={() => onOpenModal("test")} className="my-button">
             Contact
-          </a>
+          </button>
         </li>
         <li>
-          <a href="/attractions" className="my-button">
+          <button onClick={() => onOpenModal("test")} className="my-button">
             Attracties
-          </a>
+          </button>
         </li>
         <li>
-          <a href="/attractions" className="my-button">
+          <button onClick={() => onOpenModal("test")} className="my-button">
             More
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
