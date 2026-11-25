@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 import App from './App.jsx'
-
+console.log('Main loaded');
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

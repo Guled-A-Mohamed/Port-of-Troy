@@ -7,7 +7,6 @@ import RestaurantSelection from './components_d/restaurant/restaurantSelectionMo
 import ImageSlider from './components_d/imageSlider';
 import AppRoutes from './components_d/routing/appRoutes';
 import ParkSelector from './components_d/parkDropdown';
-import Test from "./components_d/testContent";
 import Navbar from "./components/Navbar";
 
 console.log('1. App.jsx imports loaded:', { DModal, Test, RestaurantSelection, ImageSlider, AppRoutes });
